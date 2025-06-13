@@ -1,4 +1,4 @@
-class Particle {
+export default class Particle {
     constructor(particleSystem) {
         this.particleSystem = particleSystem
         this.cooldown = particleSystem.timeToLive

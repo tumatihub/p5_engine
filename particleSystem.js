@@ -1,4 +1,5 @@
-class ParticleSystem {
+import Particle from "./particle.js"
+export default class ParticleSystem {
     constructor() {
         this.particles = []
         this.enabled = true
