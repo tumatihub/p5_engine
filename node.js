@@ -1,5 +1,5 @@
 export default class Node {
-    constructor(name) {
+    constructor(name = 'node') {
         this.name = name
         this.parent = null
         this.children = []
@@ -26,6 +26,13 @@ export default class Node {
         });
     }
 
+    propagateDraw() {
+        this._draw()
+        this.children.forEach(child => {
+            child.propagateDraw()
+        });
+    }
+
     addChild(node) {
         this.children.push(node)
         node.parent = this
@@ -37,4 +44,5 @@ export default class Node {
 
     _process(delta) {}
 
+    _draw() {}
 }

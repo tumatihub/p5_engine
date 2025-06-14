@@ -4,6 +4,8 @@ let tree
 
 function setup() {
     createCanvas(1152, 648);
+    tree.scene.setupScene()
+    tree.addScene(tree.scene)
     tree.root.propagateEnterTree()
     tree.root.propagateReady()
 }
@@ -13,7 +15,8 @@ function draw() {
     let delta = deltaTime/1000
     background(220);
     tree.root.propagateProcess(delta)
-    noLoop()
+    tree.root.propagateDraw()
+    //noLoop()
 }
 
 export function runScene(defaultScene) {

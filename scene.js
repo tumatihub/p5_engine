@@ -3,4 +3,6 @@ export default class Scene {
         this.name = name
         this.root = null
     }
+
+    setupScene() {}
 }
