@@ -6,7 +6,8 @@ export default class Rect extends Shape2D {
         this.width = 10
         this.height = 10
     }
-    _drawShape() {
-        rect(0, 0, this.width, this.height)
+    
+    _drawShape(buffer) {
+        buffer.rect(0, 0, this.width, this.height)
     }
 }
