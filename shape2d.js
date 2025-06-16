@@ -1,4 +1,5 @@
 import Node2D from "./node2d.js"
+import Render from "./render.js"
 
 export default class Shape2D extends Node2D{
     constructor(name) {
@@ -8,26 +9,27 @@ export default class Shape2D extends Node2D{
         this.strokeWeight = 3
         this.noStroke = false
         this.nofill = false
+        this.zIndex = 0
     }
 
     _draw() {
-        push()
-        this.applyTransform()
+        let buffer = Render.getBuffer(this.zIndex)
+        buffer.push()
+        this.applyTransform(buffer)
         if (this.nofill) {
-            noFill()
+            buffer.noFill()
         } else {
-            fill(this.fillColor)
+            buffer.fill(this.fillColor)
         }
         if (this.noStroke) {
-            noStroke()
+            buffer.noStroke()
         } else {
-            stroke(this.strokeColor)
-            strokeWeight(this.strokeWeight)
+            buffer.stroke(this.strokeColor)
+            buffer.strokeWeight(this.strokeWeight)
         }
-        
-        this._drawShape()
-        pop()
+        this._drawShape(buffer)
+        buffer.pop()
     }
 
-    _drawShape() {}
+    _drawShape(buffer) {}
 }

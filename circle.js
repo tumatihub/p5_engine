@@ -6,7 +6,7 @@ export default class Circle extends Shape2D {
         this.radius = 10
     }
 
-    _drawShape() {
-        circle(0, 0, this.radius * 2)
+    _drawShape(buffer) {
+        buffer.circle(0, 0, this.radius * 2)
     }
 }

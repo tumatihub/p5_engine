@@ -8,12 +8,12 @@ export default class Node2D extends Node {
         this.scale = createVector(1, 1)
     }
 
-    applyTransform() {
+    applyTransform(buffer) {
         if (this.parent instanceof Node2D) {
-            this.parent.applyTransform()
+            this.parent.applyTransform(buffer)
         }
-        translate(this.position)
-        rotate(this.rotation)
-        scale(this.scale)
+        buffer.translate(this.position)
+        buffer.rotate(this.rotation)
+        buffer.scale(this.scale)
     }
 }
