@@ -23,10 +23,11 @@ function draw() {
 }
 
 function debugFrameRate() {
-    translate(0,0)
+    push()
     textSize(20)
     textAlign(LEFT, TOP)
     text(round(frameRate()), 10, 10)
+    pop()
 }
 
 export function runScene(defaultScene) {

@@ -15,6 +15,9 @@ export default class Shape2D extends Node2D{
     _draw() {
         let buffer = Render.getBuffer(this.zIndex)
         buffer.push()
+        buffer.scale(Render.camera.scale)
+        buffer.rotate(Render.camera.rotation)
+        buffer.translate(Render.camera.getCornerPosition().x, Render.camera.getCornerPosition().y)
         this.applyTransform(buffer)
         if (this.nofill) {
             buffer.noFill()
