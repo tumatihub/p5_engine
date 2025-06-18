@@ -2,6 +2,10 @@ import Node2D from "./node2d.js";
 import Render from "./render.js";
 
 export default class Camera2D extends Node2D {
+    constructor(name) {
+        super(name)
+        this.position = createVector(width/2, height/2)
+    }
     activate() {
         Render.camera = this
     }

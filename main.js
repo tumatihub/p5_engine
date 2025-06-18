@@ -1,3 +1,4 @@
+import Camera2D from "./camera2D.js";
 import Render from "./render.js";
 import Tree from "./tree.js"
 
@@ -5,6 +6,8 @@ let tree
 
 function setup() {
     createCanvas(1152, 648);
+    let camera = new Camera2D("Camera2D")
+    camera.activate()
     tree.scene.setupScene()
     tree.addScene(tree.scene)
     tree.root.propagateEnterTree()

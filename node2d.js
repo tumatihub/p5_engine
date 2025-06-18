@@ -13,7 +13,7 @@ export default class Node2D extends Node {
             this.parent.applyTransform(buffer)
         }
         buffer.scale(this.scale)
-        buffer.rotate(this.rotation)
         buffer.translate(this.position)
+        buffer.rotate(this.rotation)
     }
 }
