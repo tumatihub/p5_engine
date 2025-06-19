@@ -10,9 +10,12 @@ export default class Shape2D extends Node2D{
         this.noStroke = false
         this.nofill = false
         this.zIndex = 0
+        this.visible = true
     }
 
     _draw() {
+        if (!this.visible) return
+        
         let buffer = Render.getBuffer(this.zIndex)
         buffer.push()
         buffer.scale(Render.camera.scale)
