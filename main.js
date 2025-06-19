@@ -3,9 +3,11 @@ import Render from "./render.js";
 import Tree from "./tree.js"
 
 let tree
+let canvas
 
 function setup() {
-    createCanvas(1152, 648);
+    canvas = createCanvas(1152, 648);
+    centerCanvas()
     let camera = new Camera2D("Camera2D")
     camera.activate()
     tree.scene.setupScene()
@@ -33,11 +35,22 @@ function debugFrameRate() {
     pop()
 }
 
+function centerCanvas() {
+    let x = (windowWidth-width)/2
+    let y = (windowHeight-height)/2
+    canvas.position(x, y)
+}
+
+function windowResized() {
+    centerCanvas()
+}
+
 export function runScene(defaultScene) {
     
     tree = new Tree(defaultScene)
 
     window.setup = setup
     window.draw = draw
+    window.windowResized = windowResized
 
 }
