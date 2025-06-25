@@ -26,6 +26,14 @@ export default class Node2D extends Node {
         return globalPosition.add(this.position)
     }
 
+    setGlobalPosition(position) {
+        let parentGlobalPosition = createVector()
+        if (this.parent instanceof Node2D) {
+            parentGlobalPosition = this.parent.globalPosition()
+        }
+        this.position = p5.Vector.sub(position, parentGlobalPosition)
+    }
+
     globalRotation() {
         if (this.parent instanceof Node2D) {
             return this.parent.globalRotation() + this.rotation
