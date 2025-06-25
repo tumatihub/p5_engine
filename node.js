@@ -38,6 +38,10 @@ export default class Node {
         node.parent = this
     }
 
+    addSibling(node) {
+        this.parent.addChild(node)
+    }
+
     _enterTree() {}
 
     _ready() {}
